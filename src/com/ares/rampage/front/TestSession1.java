@@ -50,7 +50,7 @@ public class TestSession1 {
 			threads = Integer.parseInt(args[1]);
 			reps = Integer.parseInt(args[2]);
 		} catch (ArrayIndexOutOfBoundsException aioobe) {
-			System.out.println("Defaulting one thread per Test File and one repitition of the test.");
+			System.out.println("Defaulting to one thread per Test File and one repitition of the test.");
 		}
 		
 		int numberOfFiles = 0; 
