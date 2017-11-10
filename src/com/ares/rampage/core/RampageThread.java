@@ -28,7 +28,7 @@ public class RampageThread implements Runnable {
 	/*
 	 * (non-Javadoc)
 	 * @see java.lang.Runnable#run()
-	 * Rampage Thread is an instance of a RampageXML being run a specified number of times
+	 * Rampage Thread is an instance of RampageXML combined with a specified number of executions
 	 * Create a new WebClient for each run 
 	 * Set Proxy values if provided
 	 * Go through the  
