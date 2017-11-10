@@ -77,5 +77,3 @@ public class XMLFileLoader {
 		this.xmlTagName = xmlTagName;
 	}
 }
-
-	
