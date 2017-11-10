@@ -56,7 +56,7 @@ public class WebClient {
         } catch (IOException ioe) {
             ioe.printStackTrace(); 
         }
-    }
+      }
     
     public void setProxy() {
 
@@ -128,7 +128,6 @@ public class WebClient {
         this.response = sb.toString();
         setResponseCode();
     }
-    
     
     public void makeConnection(URL url) {
         try {
