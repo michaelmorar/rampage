@@ -1,11 +1,9 @@
 package com.ares.rampage.core;
 
-import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
 import com.ares.common.web.HttpResponse;
-import com.ares.common.web.Step;
 
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
@@ -21,15 +19,15 @@ public class RampageResponse extends HttpResponse {
     private String responseSelection; 
 	static final Logger logger = Logger.getLogger(RampageResponse.class);
 
-    public RampageResponse() {
+    private RampageResponse() {
     	
     }
     
-    protected void logResponse() {
+    package-private void logResponse() {
     	logger.info(toString());
     }
 
-	public String getSessionName() {
+	package-private String getSessionName() {
 		return sessionName;
 	}
 

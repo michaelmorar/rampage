@@ -10,9 +10,9 @@ public class Step {
 
 	private String stepID;
 	private String postData;
-	protected boolean isPost; // Only GET and POST supported. False=GET; True=POST 
-	protected String URL;     // Needs to be injected by specific class
-	protected String URLsession; // Needs to be injected by specific class
+	private boolean isPost; // Only GET and POST supported. False=GET; True=POST
+	private String URL;     // Needs to be injected by specific class
+	private String URLsession; // Needs to be injected by specific class
 	protected WebClient webClient;    // Needs to be injected for each round of testing 
 	private int delay = 0; 
 	private int sequence; 
@@ -20,7 +20,7 @@ public class Step {
 	   
 	static final Logger logger = Logger.getLogger(Step.class);
 	
-	public Step() {
+	protected Step() {
 		this.setPost(false);
 	}
 	
@@ -37,6 +37,8 @@ public class Step {
 		executeHTTP();
 		long responseTime = (System.currentTimeMillis() - beginTime);
 		logger.trace(Thread.currentThread().getName() + " Step ID " + this.stepID + " response time was " + responseTime);
+		logger.trace(this.webClient.getResponse());
+		logger.trace(this.webClient.getResponseCode());
 		return responseTime;
 	}
 	
@@ -78,7 +80,7 @@ public class Step {
 		return isPost;
 	}
 	
-	public String getIsPost() {
+	private String getIsPost() {
 		if (isPost) {
 			return "POST";
 		} else {
@@ -102,7 +104,7 @@ public class Step {
 		return URL;
 	}
 
-	public void setURL(String uRL) {
+	protected void setURL(String uRL) {
 		URL = uRL;
 	}
 	
@@ -110,7 +112,7 @@ public class Step {
 		return URLsession;
 	}
 
-	public void setURLsession(String uRLsession) {
+	protected void setURLsession(String uRLsession) {
 		URLsession = uRLsession;
 	}
 	
@@ -125,7 +127,7 @@ public class Step {
 	 * 3 * Sets the connection type (makeConnection or makeOutputConnection)
 	 */
 	
-	public void setUpConnection() {
+	private void setUpConnection() {
 		this.webClient.setProxy();
 		String s =  this.URL;
 		
@@ -148,7 +150,7 @@ public class Step {
 		return delay;
 	}
 
-	public void setDelay(int delay) {
+	protected void setDelay(int delay) {
 		this.delay = delay;
 	}
 
@@ -156,7 +158,7 @@ public class Step {
 		return sequence;
 	}
 
-	public void setSequence(int sequence) {
+	protected void setSequence(int sequence) {
 		this.sequence = sequence;
 	}
 
@@ -164,19 +166,19 @@ public class Step {
 		return stepID;
 	}
 
-	public void setStepID(String stepID) {
+	protected void setStepID(String stepID) {
 		this.stepID = stepID;
 	}
 	
 	public String toString() {
-		return new String(getStepID() + " " + getIsPost());
+		return (getStepID() + " " + getIsPost());
 	}
 
 	public int getHttpResponseCode() {
 		return httpResponseCode;
 	}
 
-	public void setHttpResponseCode(int httpResponseCode) {
+	private void setHttpResponseCode(int httpResponseCode) {
 		this.httpResponseCode = httpResponseCode;
 	}
 

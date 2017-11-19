@@ -59,14 +59,15 @@ public class TestSession1 {
 		do {
         	System.setProperty("http.agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.63 Safari/535.7");
         	//TO DO compensate for lack of "/" in base directory
-        	String filename = new String(args[0] + "TEST" + Integer.toString(numberOfFiles) + ".xml");
-        	String proxyName = new String(args[0] + "proxy.properties");
+        	String filename = args[0] + "TEST" + Integer.toString(numberOfFiles) + ".xml";
+        	String proxyName = args[0] + "proxy.properties";
         	File XMLfile = new File(filename);
-        	logger.info("Using " + filename);
+
         	// For every file found, create a step list and inject into TestThread
         	File ProxyFile = new File(proxyName);
     		
         	if (XMLfile.exists()) {
+				logger.info("Using " + filename);
     			++numberOfFiles;
         		RampageXML rx = new RampageXML(XMLfile);
         		for (int x=0; x <=threads; ++x) {

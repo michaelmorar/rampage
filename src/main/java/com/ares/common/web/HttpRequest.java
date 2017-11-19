@@ -1,12 +1,8 @@
 package com.ares.common.web;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-
-import com.ares.common.util.ReadFile;
 
 public class HttpRequest {
 
