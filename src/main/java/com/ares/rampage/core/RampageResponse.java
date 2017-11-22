@@ -19,15 +19,15 @@ public class RampageResponse extends HttpResponse {
     private String responseSelection; 
 	static final Logger logger = Logger.getLogger(RampageResponse.class);
 
-    private RampageResponse() {
+    protected RampageResponse() {
     	
     }
     
-    package-private void logResponse() {
+    protected void logResponse() {
     	logger.info(toString());
     }
 
-	package-private String getSessionName() {
+	protected String getSessionName() {
 		return sessionName;
 	}
 
