@@ -20,15 +20,19 @@ public class RampageXMLStep extends Step {
 	private Element step;
 
 	/*
-	 * Check for embedded Regex elements inside this element
+	 * Determine if this element contains, rather than a String, a Regex expression
 	 */
 	private NodeList checkForRegex(Element e) {
 		NodeList nl = e.getElementsByTagName("regex");
 		return nl; 
 	}
 
+	/*
+	 * Use regex pattern to find a matching string in the previous HTML response
+	 * This String can be presented in the subsequent request
+	 */
 	private String getRegexValue(String pattern) {
-		// Use regex pattern to find a matching string in the last HTML response received
+
 		
 		try {
 			Pattern p = Pattern.compile(pattern);
